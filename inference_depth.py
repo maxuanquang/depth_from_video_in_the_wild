@@ -17,19 +17,19 @@
 
 # Example usage:
 #
-# %cd '/content/models/research/vid2depth'
-# !python inference_depth.py \
-#   --kitti_dir '/content/drive/MyDrive/Dự án/KITTI Dataset/Raw Data' \
-#   --output_dir '/content/depth_from_video_in_the_wild/inference' \
-#   --kitti_video 2011_09_26/2011_09_26_drive_0009_sync \
-#   --model_ckpt '/content/depth_from_video_in_the_wild/cityscapes_kitti_learned_intrinsics/model-1000977'
+# %cd '/content/'
+# !python -m depth_from_video_in_the_wild.inference_depth \
+# --kitti_dir '/content/drive/MyDrive/Dự án/KITTI Dataset/Raw Data' \
+# --output_dir '/content/depth_from_video_in_the_wild/inference' \
+# --kitti_video 2011_09_26/2011_09_26_drive_0009_sync \
+# --model_ckpt '/content/depth_from_video_in_the_wild/cityscapes_kitti_learned_intrinsics/model-1000977'
 #
-# %cd '/content/models/research/vid2depth'
-# !python inference_depth.py \
-#   --kitti_dir '/content/drive/MyDrive/Dự án/KITTI Dataset/Raw Data' \
-#   --output_dir '/content/models/research/vid2depth' \
-#   --kitti_video test_file_eigen \
-#   --model_ckpt '/content/depth_from_video_in_the_wild/cityscapes_kitti_learned_intrinsics/model-1000977'
+# %cd '/content/'
+# !python -m depth_from_video_in_the_wild.inference_depth \
+# --kitti_dir '/content/drive/MyDrive/Dự án/KITTI Dataset/Raw Data' \
+# --output_dir '/content/depth_from_video_in_the_wild/inference' \
+# --kitti_video test_file_eigen \
+# --model_ckpt '/content/depth_from_video_in_the_wild/cityscapes_kitti_learned_intrinsics/model-1000977'
 #
 
 from __future__ import absolute_import
@@ -41,11 +41,11 @@ from absl import app
 from absl import flags
 from absl import logging
 import matplotlib.pyplot as plt
-import model
+import depth_from_video_in_the_wild.model as model
 import numpy as np
 import scipy.misc
 import tensorflow as tf
-import util
+import depth_from_video_in_the_wild.util as util
 
 gfile = tf.gfile
 
